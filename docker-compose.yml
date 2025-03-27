@@ -1,0 +1,7 @@
+version: '3'
+services:
+  dubai-cycling:
+    build: .
+    volumes:
+      - ./data:/app/data
+    restart: unless-stopped
