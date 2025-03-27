@@ -1578,9 +1578,15 @@ def dubai_cycling_app_with_route_suggester():
 # Launch the app if run directly
 if __name__ == "__main__":
     app = dubai_cycling_app_with_route_suggester()
-    # Modify the launch method to specify a port and show more information
-    app.launch(
-        server_port=7868,  # Explicitly set the port to 7868
-        show_error=True,   # Show detailed errors if something goes wrong
-        server_name="0.0.0.0"  # Allow access from other devices on the network
-    )
+    try:
+        app.launch(
+            server_port=7868,
+            server_name="0.0.0.0",
+            show_error=True,
+            share=False,  # Disable public sharing
+            debug=True    # Add debug mode
+        )
+    except Exception as e:
+        print(f"Critical error during app launch: {e}")
+        import traceback
+        traceback.print_exc()
