@@ -1578,4 +1578,9 @@ def dubai_cycling_app_with_route_suggester():
 # Launch the app if run directly
 if __name__ == "__main__":
     app = dubai_cycling_app_with_route_suggester()
-    app.launch()
+    # Modify the launch method to specify a port and show more information
+    app.launch(
+        server_port=7868,  # Explicitly set the port to 7868
+        show_error=True,   # Show detailed errors if something goes wrong
+        server_name="0.0.0.0"  # Allow access from other devices on the network
+    )
